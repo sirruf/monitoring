@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: monitoring_production
-  username: monitoring
-  password: <%= ENV['MONITORING_DATABASE_PASSWORD'] %>
+  database: wm-service_production
+  username: wm-service
+  password: <%= ENV['WM-SERVICE_DATABASE_PASSWORD'] %>
