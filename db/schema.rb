@@ -12,8 +12,11 @@
 
 ActiveRecord::Schema.define(version: 20180802174756) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "events", force: :cascade do |t|
-    t.integer "site_id"
+    t.bigint "site_id"
     t.string "uuid"
     t.boolean "solved", default: false
     t.integer "code"
@@ -32,4 +35,5 @@ ActiveRecord::Schema.define(version: 20180802174756) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "events", "sites"
 end
