@@ -1,0 +1,5 @@
+checker_job:
+  cron: "*/3 * * * *"
+  class: "CheckSitesJob"
+  queue: default
+  active_job: true
