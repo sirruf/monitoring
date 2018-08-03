@@ -1,0 +1,38 @@
+<div align="center">
+  <h2>Events for <%= @site.name %>(<%= @site.url %>)</h2>
+  <table border="1" width="40%">
+    <tr>
+      <th>
+        ID
+      </th>
+      <th>
+        Created
+      </th>
+      <th>
+        Updated
+      </th>
+      <th>
+        Code
+      </th>
+      <th>
+        Message
+      </th>
+      <th>
+        Solved?
+      </th>
+    </tr>
+    <% @events.each do |event| %>
+      <tr align="center">
+        <td><%= event.id %></td>
+        <td><%= event.created_at %></td>
+        <td><%= event.updated_at %></td>
+        <td><%= event.code %></td>
+        <td><%= event.message %></td>
+        <td><%= event.solved %></td>
+      </tr>
+    <% end %>
+  </table>
+  <div style="margin-top: 10px;">
+    <%= link_to 'Back', sites_path %>
+  </div>
+</div>

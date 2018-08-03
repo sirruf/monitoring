@@ -5,7 +5,7 @@
 #
 class NotificationMailer < ApplicationMailer
   def notification_email
-    @event = Event.find(params[:event_id])
-    mail(to: @event.site.owner_email, subject: 'Monitoring notification')
+    @event = Event.find_by(id: params[:event_id])
+    mail(to: @event.site.owner_email, subject: 'Monitoring notification') if @event.present?
   end
 end

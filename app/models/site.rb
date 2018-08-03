@@ -6,7 +6,7 @@
 class Site < ApplicationRecord
   scope :active, -> { where(active: true) }
 
-  has_many :events
+  has_many :events, dependent: :destroy
 
   validates :url, :name, :owner_email, presence: true
 

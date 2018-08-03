@@ -1,0 +1,39 @@
+<div align="center">
+  <h2>Sites</h2>
+  <table border="1" width="40%">
+    <tr>
+      <th>
+        ID
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        URL
+      </th>
+      <th>
+        Active?
+      </th>
+      <th>
+        Status?
+      </th>
+      <th>
+        &nbsp;
+      </th>
+    </tr>
+    <% @sites.each do |site| %>
+      <tr align="center">
+        <td><%= site.id %></td>
+        <td><%= site.name %></td>
+        <td><%= site.url %></td>
+        <td><%= site.active %></td>
+        <td><%= link_to site.success?.to_s, site_events_path(site) %></td>
+        <td><%= link_to 'Edit', edit_site_path(site) %> |
+          <%= link_to 'Delete', site_path(site), method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+  <div style="margin-top: 10px;">
+    <%= link_to 'Add new site', new_site_path %>
+  </div>
+</div>

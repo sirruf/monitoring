@@ -1,0 +1,18 @@
+<%= form_for @site do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.label :owner_email %>
+    <%= f.text_field :owner_email %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
