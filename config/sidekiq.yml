@@ -8,6 +8,6 @@
   - <%= `hostname`.strip %>
   - low
 production:
-  :concurrency: 10
+  :concurrency: 1
 staging:
-  :concurrency: 10
+  :concurrency: 1
