@@ -11,8 +11,21 @@ class Event < ApplicationRecord
   validates :site_id, :code, :message, presence: true
 
   before_validation :find_last_uuid
+  after_commit :send_notification
+
+  def send_notification
+    if success? || solved == true
+      NotificationMailer.with(event_id: id).notification_email.deliver
+    else
+      Notifications.send(self)
+    end
+  end
 
   private
+
+  def success?
+    saved_changes.include?('solved') && solved == true
+  end
 
   def find_last_uuid
     last_uuid = unresolved_for_site.last&.uuid

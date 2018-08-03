@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180802174756) do
+ActiveRecord::Schema.define(version: 20180802233624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20180802174756) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "notifications_count", default: 0
     t.index ["site_id"], name: "index_events_on_site_id"
   end
 
