@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :sites do
     resources :events, only: [:index]
   end
+  root to: "sites#index"
 end
