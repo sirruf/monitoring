@@ -13,6 +13,8 @@ class Event < ApplicationRecord
   before_validation :find_last_uuid
   after_commit :send_notification
 
+  private
+
   def send_notification
     if success? || solved == true
       NotificationMailer.with(event_id: id).notification_email.deliver
@@ -20,8 +22,6 @@ class Event < ApplicationRecord
       Notifications.send(self)
     end
   end
-
-  private
 
   def success?
     saved_changes.include?('solved') && solved == true
